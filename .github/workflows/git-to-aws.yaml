@@ -1,5 +1,11 @@
 name: Deploy DynamoDB to Cloud Formation
 on: 
+  workflow_dispatch:
+    inputs:
+      stack_name:
+        description: 'name of the stack'
+        required: true
+        default: 'DynamoDB-Demo'
   push:
     branches:
       - master
