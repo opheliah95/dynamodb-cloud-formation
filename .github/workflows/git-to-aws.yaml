@@ -24,7 +24,6 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Check input value
-      if: "${{ github.event.inputs.stack_name == '' }}"
       run: echo the env var stack_name is $stack_name 
      
     - name: Print message if empty
@@ -33,7 +32,8 @@ jobs:
       env:
         stack-name: 'DynamoDB-Demo'
 
-
+    - name: Check current stack-name
+      run: echo now stack_name is $stack_name
 
     - name: Configure AWS credentials
       id: creds
