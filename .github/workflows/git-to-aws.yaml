@@ -26,11 +26,12 @@ jobs:
     - name: Check input value
       run: echo the env var stack_name is $stack_name 
      
-    - name: Print message if empty
+    - name: Assign input value if it is empty
+      id: assign var
       if: "${{ github.event.inputs.stack_name == '' }}"
-      run: echo $stack_name value is empty, default value will be applied
-      env:
-        stack-name: 'DynamoDB-Demo'
+      run: |
+          echo $stack_name value is empty, default value will be applied
+          echo "stack_name=DynamoDB-Demo" >> $GITHUB_ENV
 
     - name: Check current stack-name
       run: echo now stack_name is $stack_name
