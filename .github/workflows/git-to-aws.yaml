@@ -26,7 +26,7 @@ jobs:
     - name: Deploy to AWS CloudFormation
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
-        name: DynamoDB
+        name: '$${{github.event.input.stack_name}}'
         template: dynamodb.yaml
         no-fail-on-empty-changeset: "1"
         
