@@ -10,10 +10,6 @@ Parameters:
     Description: Github Repository Branch
     Default: master
 
-  OauthToken:
-    Type: String
-    Description: GitHub Repository URL
-    NoEcho: true
 
 Resources:
   OrdersTable:
