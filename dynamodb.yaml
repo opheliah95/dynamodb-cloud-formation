@@ -19,7 +19,7 @@ Resources:
         AttributeName: "ExpirationTime"
         Enabled: true
       ProvisionedThroughput:
-        ReadCapacityUnits: "10"
+        ReadCapacityUnits: "5"
         WriteCapacityUnits: "5"
     DependsOn:
       - DynamoDBQueryPolicy
