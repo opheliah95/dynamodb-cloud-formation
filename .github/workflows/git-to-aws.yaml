@@ -9,6 +9,8 @@ on:
   push:
     branches:
       - master
+env:
+  stack-name: '${{ github.event.inputs.stack_name }}'
 jobs:
   deploy:
     name: Deploy DynamoDB to Cloud Formation
@@ -20,6 +22,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Print message if empty
+      if: "${{ github.event.inputs.stack_name == '' }}"
+      run: echo stack_name value is empty, default value will be applied
+      env:
+        stack-name: 'DynamoDB-Demo'
+
+
 
     - name: Configure AWS credentials
       id: creds
@@ -32,7 +42,7 @@ jobs:
     - name: Deploy to AWS CloudFormation
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
-        name: '${{ github.event.inputs.stack_name }}'
+        name: '${{ env.stack_name }}'
         template: dynamodb.yaml
         no-fail-on-empty-changeset: "1"
         
