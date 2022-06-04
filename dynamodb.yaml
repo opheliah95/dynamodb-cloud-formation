@@ -1,4 +1,20 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  Repository:
+    Type: String
+    Description: GitHub Repository URL
+
+  Branch:
+    Type: String
+    Description: Github Repository Branch
+    Default: master
+
+  OauthToken:
+    Type: String
+    Description: GitHub Repository URL
+    NoEcho: true
+
 Resources:
   OrdersTable:
     Type: AWS::DynamoDB::Table
