@@ -20,7 +20,7 @@ Resources:
         Enabled: true
       ProvisionedThroughput:
         ReadCapacityUnits: "5"
-        WriteCapacityUnits: "5"
+        WriteCapacityUnits: "10"
     DependsOn:
       - DynamoDBQueryPolicy
 
