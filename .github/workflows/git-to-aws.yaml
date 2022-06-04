@@ -27,7 +27,7 @@ jobs:
       run: echo the env var stack_name is $stack_name 
      
     - name: Assign input value if it is empty
-      id: assign var
+      id: assign_var
       if: "${{ github.event.inputs.stack_name == '' }}"
       run: |
           echo $stack_name value is empty, default value will be applied
